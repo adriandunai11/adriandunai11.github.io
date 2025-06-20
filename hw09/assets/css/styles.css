@@ -13,6 +13,10 @@
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: var(--bg-color);
     font-family: var(--default-font);
@@ -61,7 +65,6 @@ header .header-image img {
     white-space: nowrap;
     transition: 0.3s;
     font-weight: 700;
-    text-decoration: none;
 }
 
 .navmenu a:hover {
@@ -135,4 +138,33 @@ footer {
     width: 100%;
     height: 200px;
     border: 0;
+}
+
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    border-radius: 50%;
+    background-color: var(--nav-color);
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+}
+
+.scroll-top i {
+    font-size: 24px;
+    color: white;
+    line-height: 0;
 }
