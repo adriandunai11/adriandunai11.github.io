@@ -1,6 +1,25 @@
 (function () {
     "use strict";
 
+    $('#menuToggle').on('click', function (e) {
+        e.preventDefault();
+        $(this).toggleClass('open');
+
+        const $menu = $('#navmenu');
+        if ($menu.hasClass('active')) {
+            $menu.removeClass('active');
+        } else {
+            $menu.removeClass('active');
+            void $menu[0].offsetWidth;
+            $menu.addClass('active');
+        }
+    });
+
+    $('.navmenu a').on('click', function () {
+        $('#menuToggle').removeClass('open');
+        $('#navmenu').removeClass('active');
+    });
+
     let scrollTop = document.querySelector('.scroll-top');
 
     function toggleScrollTop() {
