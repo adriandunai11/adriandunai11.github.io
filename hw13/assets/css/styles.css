@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #D7B520;
+    --footer-bg: #E7E6E6;
+    --border-color: #DDD;
+    --bg-white: #FFF;
+    --aside-bg: #5B9BD5;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 20px auto;
+    background-color: var(--bg-white);
+    border: 2px solid var(--border-color);
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+    grid-template-columns: 30% 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header {
+    grid-area: header;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+header img {
+    width: 100%;
+    display: block;
+}
+
+
+aside {
+    grid-area: aside;
+    border: 2px solid var(--border-color);
+    background-color: var(--aside-bg);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+aside nav h2 {
+    margin-bottom: 20px;
+}
+
+aside nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside nav ul li {
+    margin-bottom: 10px;
+}
+
+aside nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+aside form {
+    margin-top: 20px;
+}
+
+aside .form-group {
+    margin: 20px 0;
+}
+
+aside .form-group label {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+aside input,
+aside select,
+aside textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+label:has(+ input[required])::after {
+    content: " *";
+    color: red;
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+main {
+    grid-area: main;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+section {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+section#balaton {
+    background-color: #FBE5D6;
+}
+
+section#tisza-to {
+    background-color: #FFF2CC;
+}
+
+section#szelidi-to {
+    background-color: #DEEBF7;
+}
+
+.float-left {
+    float: left;
+    margin-right: 10px;
+    border-radius: 10px;
+    max-width: 40%;
+}
+
+.float-right {
+    float: right;
+    margin-left: 10px;
+    border-radius: 10px;
+    max-width: 40%;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--footer-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "aside"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+
+    .float-left {
+        float: none;
+        display: block;
+        margin: 0 auto 10px;
+        max-width: 100%;
+    }
+
+
+    .float-right {
+        float: none;
+        display: block;
+        margin: 0 auto 10px;
+        max-width: 100%;
+    }
+}
