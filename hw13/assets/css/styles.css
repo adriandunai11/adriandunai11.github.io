@@ -127,6 +127,10 @@ section {
     margin-bottom: 10px;
 }
 
+section h2 {
+    margin-bottom: 20px;
+}
+
 section#balaton {
     background-color: #FBE5D6;
 }
