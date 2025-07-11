@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 * {
   box-sizing: border-box;
@@ -9,12 +9,11 @@
 
 :root {
   --bg-color: #fff;
-  --text-color: #000;
-  --logo-color: #000;
-  --nav-color: #000;
+  --text-color: #555555;
+  --nav-color: #fff;
   --main-color: #16ace3;
   --mobile-menu-bg: #fff;
-  --mobile-menu-color: #000;
+  --mobile-menu-color: #555555;
   --card-bg: #fafbfb;
   --footer-bg: #fafbfb;
   --nav-bg: #fff;
@@ -22,15 +21,14 @@
 
 [data-theme="dark"] {
   --bg-color: #1a1a1a;
-  --text-color: #bbbbbb;
-  --logo-color: #fff;
+  --text-color: #fff;
   --nav-color: #fff;
   --main-color: #16ace3;
-  --mobile-menu-bg: #1a1a1a;
-  --mobile-menu-color: #bbbbbb;
+  --mobile-menu-bg: #1e2023;
+  --mobile-menu-color: #fff;
   --card-bg: #1e2023;
   --footer-bg: #1e2023;
-  --nav-bg: #1a1a1a;
+  --nav-bg: #1e2023;
 }
 
 a#switchTheme .isLight,
@@ -46,8 +44,20 @@ a#switchTheme .isDark {
   display: block;
 }
 
+[data-theme="light"] .index-page.scrolled header {
+  background-color: var(--nav-bg);
+  --nav-color: #fff;
+  box-shadow: 0px 14px 36.7px 0px rgba(14, 12, 21, 0.06);
+
+}
+
+[data-theme="dark"] .index-page.scrolled header {
+  background-color: var(--nav-bg);
+  --nav-color: #fff;
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Outfit', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
 }
@@ -110,9 +120,6 @@ header {
   z-index: 1030;
 }
 
-.index-page.scrolled header {
-  background-color: var(--nav-bg);
-}
 
 .header-menu {
   display: flex;
@@ -128,8 +135,8 @@ header .header-menu .logo {
 
 header .header-menu .logo h1 {
   margin: 0;
-  color: var(--logo-color);
-  font-size: 30px;
+  color: var(--nav-color);
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -147,7 +154,7 @@ header .header-menu .logo h1 {
 .menu-toggle span {
   display: block;
   height: 3px;
-  background-color: #fff;
+  background-color: var(--nav-color);
   border-radius: 2px;
   transition: all .8s ease;
   transform-origin: center;
@@ -164,6 +171,8 @@ header .header-menu .logo h1 {
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
+
+
 
 @media (max-width: 1199px) {
   .menu-toggle {
@@ -263,6 +272,7 @@ header .header-menu .logo h1 {
 header a.switchTheme,
 header a:focus.switchTheme {
   color: var(--nav-color);
+  margin-left: 30px;
 }
 
 header a:hover.switchTheme {
@@ -285,6 +295,14 @@ header a:hover.switchTheme {
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+
+.hero .hero-background:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .hero img {
