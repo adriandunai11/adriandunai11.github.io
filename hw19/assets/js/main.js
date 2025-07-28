@@ -77,6 +77,7 @@ function displayResults() {
         result.style.padding = "10px"
         result.style.marginTop = "15px"
         result.style.borderRadius = "4px"
+        result.style.border = "5px solid #16ace3"
     }
 
 }
