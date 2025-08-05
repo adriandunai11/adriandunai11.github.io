@@ -1,6 +1,13 @@
 (function () {
     "use strict";
 
+    const preloader = document.querySelector('#preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            preloader.remove();
+        });
+    }
+
     function toggleScrolled() {
         const selectBody = document.querySelector('body');
         const selectHeader = document.querySelector('#header');

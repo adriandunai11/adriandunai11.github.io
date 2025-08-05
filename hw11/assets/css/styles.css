@@ -24,11 +24,11 @@
   --text-color: #fff;
   --nav-color: #fff;
   --main-color: #16ace3;
-  --mobile-menu-bg: #1e2023;
+  --mobile-menu-bg: #25282c;
   --mobile-menu-color: #fff;
-  --card-bg: #1e2023;
-  --footer-bg: #1e2023;
-  --nav-bg: #1e2023;
+  --card-bg: #25282c;
+  --footer-bg: #25282c;
+  --nav-bg: #25282c;
 }
 
 a#switchTheme .isLight,
@@ -57,8 +57,40 @@ a#switchTheme .isDark {
 
 body {
   font-family: 'Outfit', sans-serif;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--main-color) transparent var(--main-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 a {
@@ -183,7 +215,7 @@ header .header-menu .logo h1 {
     top: 140%;
     left: 0;
     width: 100%;
-    background: var(--mobile-menu-bg);
+    background-color: var(--mobile-menu-bg);
     padding: 0 1rem;
     overflow: hidden;
     max-height: 0;
@@ -298,7 +330,7 @@ header a:hover.switchTheme {
 
 .hero .hero-background:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -426,7 +458,7 @@ section {
 
 .card {
   display: block;
-  background: var(--card-bg);
+  background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -472,7 +504,7 @@ section {
 }
 
 .footer {
-  background: var(--footer-bg);
+  background-color: var(--footer-bg);
   color: var(--text-color);
   padding: 40px 0 40px 0;
   text-align: center;
@@ -519,7 +551,7 @@ section {
 
 .page-title:before {
   content: "";
-  background: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.45);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -551,9 +583,20 @@ section {
   gap: 24px;
 }
 
+
 .col {
   flex: 1;
   min-width: 0;
+}
+
+.col-3 {
+  flex: 0 0 calc(25% - 18px);
+  max-width: calc(25% - 18px);
+}
+
+.col-4 {
+  flex: 0 0 calc(33.3333% - 16px);
+  max-width: calc(33.3333% - 16px);
 }
 
 .col-6 {
@@ -566,12 +609,15 @@ section {
   max-width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .col-3,
+  .col-4,
   .col-6 {
     flex: 0 0 100%;
     max-width: 100%;
   }
 }
+
 
 .contact .info-wrap {
   background-color: var(--card-bg);
@@ -581,10 +627,98 @@ section {
   height: 100%;
 }
 
+.contact .info-wrap .info-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.contact .info-wrap .info-item i{
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  background-color: var(--main-color);
+  margin-right: 20px;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.contact .info-wrap .info-item a{
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.contact .info-wrap .info-item a:hover{
+  color: var(--main-color)
+}
+
 .contact .email-form {
   background-color: var(--card-bg);
   height: 100%;
   padding: 30px;
   border-bottom: 3px solid var(--main-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.contact .email-form .form-control {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  box-shadow: none;
+  background-color:
+    color-mix(in srgb, var(--bg-color), transparent 50%);
+  border-radius: 0;
+  line-height: 1.5;
+  color: var(--text-color);
+  appearance: none;
+  border: 1px solid var(--text-color);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.contact .email-form input[type=text]:focus,
+.contact .email-form input[type=email]:focus,
+.contact .email-form textarea:focus {
+  border-color: var(--main-color);
+  outline: 0;
+}
+
+.contact .email-form label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+label.required::after {
+  content: " *";
+  color: red;
+  margin-left: 4px;
+}
+
+.contact .email-form button[type=submit] {
+  color: #fff;
+  background-color: var(--main-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+
+.blog-section .blog-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+}
+
+.blog-section .blog-item .post-img img {
+  max-width: 100%;
+  height: auto;
 }
