@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 
 </head>
@@ -88,6 +89,73 @@
             <div class="container" data-aos="fade-up">
                 <div class="partners-title">Akik bennünk bíznak</div>
             </div>
+            <div class="swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                    {
+                        "loop": true,
+                        "speed": 2000,
+                        "freeMode": true,
+                        "allowTouchMove": false,
+                        "slidesPerView": "auto",            
+                        "autoplay": {
+                            "delay": 0,
+                            "pauseOnMouseEnter": false,
+                            "disableOnInteraction": true
+                            
+                        },
+                        "breakpoints": {
+                            "320": {
+                                "slidesPerView": 2,
+                                "spaceBetween": 20
+                            },
+                            "480": {
+                                "slidesPerView": 3,
+                                "spaceBetween": 20
+                            },
+                            "640": {
+                                "slidesPerView": 5,
+                                "spaceBetween": 20
+                            },
+                            "992": {
+                                "slidesPerView": 7,
+                                "spaceBetween": 20
+                            },
+                            "1200": {
+                                "slidesPerView": 8,
+                                "spaceBetween": 20
+                            }
+                        }
+                    }
+                </script>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/partners/1.png" alt="">
+                    </div>
+                </div>
+            </div>
+            </div>
+
         </section>
 
         <section id="services" class="services">
@@ -219,8 +287,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
