@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="hu" data-theme="light">
+<html lang="hu" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prooktatás 11. alkalom | Házi feladat</title>
+    <title>Prooktatás vizsgamunka</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="author" content="Dunai Adrián">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -89,68 +89,73 @@
             <div class="container" data-aos="fade-up">
                 <div class="partners-title">Akik bennünk bíznak</div>
             </div>
-            <div class="swiper init-swiper">
+            <div class="swiper init-swiper" data-aos="fade-up">
                 <script type="application/json" class="swiper-config">
                     {
                         "loop": true,
                         "speed": 2000,
-                        "freeMode": true,
                         "allowTouchMove": false,
                         "slidesPerView": "auto",            
+                        "preventClicks": false,
+                        "preventClicksPropagation": false,
                         "autoplay": {
                             "delay": 0,
                             "pauseOnMouseEnter": false,
-                            "disableOnInteraction": true
+                            "disableOnInteraction": false
                             
                         },
                         "breakpoints": {
-                            "320": {
-                                "slidesPerView": 2,
-                                "spaceBetween": 20
-                            },
+         
                             "480": {
-                                "slidesPerView": 3,
-                                "spaceBetween": 20
+                                "slidesPerView": 1,
+                                "spaceBetween": 0
                             },
                             "640": {
-                                "slidesPerView": 5,
-                                "spaceBetween": 20
+                                "slidesPerView": 3,
+                                "spaceBetween": 10
                             },
                             "992": {
-                                "slidesPerView": 7,
-                                "spaceBetween": 20
+                                "slidesPerView": 4,
+                                "spaceBetween": 10
                             },
-                            "1200": {
-                                "slidesPerView": 8,
-                                "spaceBetween": 20
+                            "1400": {
+                                "slidesPerView": 5,
+                                "spaceBetween": 10
                             }
                         }
                     }
                 </script>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://google.com" target="_blank">
+                            <img src="assets/images/partners/1.png" alt="Google">
+                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://discord.com" target="_blank">
+                            <img src="assets/images/partners/2.png" alt="Discord">
+                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://meta.com" target="_blank">
+                            <img src="assets/images/partners/3.png" alt="Meta">
+                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://shopify.com" target="_blank">
+
+                            <img src="assets/images/partners/4.png" alt="Shopify">
+                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://apple.com" target="_blank">
+                            <img src="assets/images/partners/5.png" alt="Apple">
+                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/partners/1.png" alt="">
+                        <a href="https://brave.com" target="_blank">
+                            <img src="assets/images/partners/6.png" alt="Brave">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -158,32 +163,75 @@
 
         </section>
 
-        <section id="services" class="services">
+        <section class="service-section">
             <div class="container section-title" data-aos="fade-right">
                 <h2>Szolgáltatásaink</h2>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6" data-aos="fade-right">
+                        <div class="service-item">
+                            <div class="service-content">
+                                <i class="fas fa-laptop-code service-icon"></i>
 
-            <div class="container" data-aos="fade-up">
-                <div class="grid">
-                    <div class="card">
-                        <i class="fas fa-laptop-code service-icon"></i>
-                        <h3>Weboldal készítés</h3>
-                        <p>Modern, gyors, reszponzív weboldalak fejlesztése vállalkozásoknak.</p>
+                                <h3 class="service-title">Weboldal készítés</h3>
+                                <div class="meta">
+                                    <p>
+                                        Modern, gyors, reszponzív weboldalak fejlesztése vállalkozásoknak.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <i class="fas fa-shopping-cart service-icon"></i>
-                        <h3>Webáruház fejlesztés</h3>
-                        <p>Egyedi vagy sablon alapú webshopok WooCommerce vagy saját megoldással.</p>
+                    <div class="col-6" data-aos="fade-right">
+                        <div class="service-item">
+                            <div class="service-content">
+                                <i class="fas fa-shopping-cart service-icon"></i>
+
+                                <h3 class="service-title">Webáruház fejlesztés</h3>
+                                <div class="meta">
+                                    <p>
+                                        Egyedi vagy sablon alapú webshopok WooCommerce vagy saját megoldással.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <i class="fas fa-search service-icon"></i>
-                        <h3>Keresőoptimalizálás (SEO)</h3>
-                        <p>Jobb helyezések a Google-ben, technikai és tartalmi SEO-val.</p>
+                    <div class="col-6" data-aos="fade-right">
+                        <div class="service-item">
+                            <div class="service-content">
+                                <i class="fas fa-search service-icon"></i>
+
+                                <h3 class="service-title">Keresőoptimalizálás (SEO)</h3>
+                                <div class="meta">
+                                    <p>
+                                        Jobb helyezések a Google-ben, technikai és tartalmi SEO-val.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <i class="fas fa-tools service-icon"></i>
-                        <h3>Karbantartás, üzemeltetés</h3>
-                        <p>Weboldalak folyamatos frissítése, biztonsági mentések, gyors beavatkozás.</p>
+
+                    <div class="col-6" data-aos="fade-right">
+                        <div class="service-item">
+                            <div class="service-content">
+                                <i class="fas fa-tools service-icon"></i>
+
+                                <h3 class="service-title">Karbantartás, üzemeltetés</h3>
+                                <div class="meta">
+                                    <p>
+                                        Weboldalak folyamatos frissítése, biztonsági mentések, gyors beavatkozás.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row cta-wrapper">
+                    <div class="col">
+                        <a class="btn-cta" href="services.html">Összes szolgáltatásunk <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -262,6 +310,11 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="row cta-wrapper">
+                    <div class="col">
+                        <a class="btn-cta" href="blog.html">Összes blog <i class="fa fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
