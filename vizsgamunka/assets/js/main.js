@@ -1,104 +1,82 @@
 (function () {
     "use strict";
 
-    const preloader = document.querySelector('#preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove();
-        });
-    }
+    const $ = s => document.querySelector(s);
+    const $$ = s => document.querySelectorAll(s);
 
-    function toggleScrolled() {
-        const selectBody = document.querySelector('body');
-        const selectHeader = document.querySelector('#header');
-        if (!selectHeader.classList.contains('fixed-top')) return;
-        window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-    }
+    // Preloader
+    const preloader = $('#preloader');
+    if (preloader) window.addEventListener('load', () => preloader.remove());
 
-    document.addEventListener('scroll', toggleScrolled);
+    // Scroll header effect
+    const header = $('#header');
+    const toggleScrolled = () => {
+        if (header?.classList.contains('fixed-top')) {
+            document.body.classList.toggle('scrolled', window.scrollY > 100);
+        }
+    };
     window.addEventListener('load', toggleScrolled);
+    document.addEventListener('scroll', toggleScrolled);
 
-    $('#menuToggle').on('click', function (e) {
+    // Menu toggle
+    const menuToggle = $('#menuToggle');
+    const navMenu = $('#navmenu');
+
+    menuToggle?.addEventListener('click', e => {
         e.preventDefault();
-        $(this).toggleClass('open');
+        menuToggle.classList.toggle('open');
 
-        const $menu = $('#navmenu');
-        if ($menu.hasClass('active')) {
-            $menu.removeClass('active');
+        if (navMenu?.classList.contains('active')) {
+            navMenu.classList.remove('active');
         } else {
-            $menu.removeClass('active');
-            void $menu[0].offsetWidth;
-            $menu.addClass('active');
+            navMenu.classList.remove('active');
+            void navMenu.offsetWidth;
+            navMenu.classList.add('active');
         }
     });
 
-    $('.navmenu a').on('click', function () {
-        $('#menuToggle').removeClass('open');
-        $('#navmenu').removeClass('active');
-    });
+    $$('.navmenu a').forEach(link =>
+        link.addEventListener('click', () => {
+            menuToggle?.classList.remove('open');
+            navMenu?.classList.remove('active');
+        })
+    );
 
-    let scrollTop = document.querySelector('.scroll-top');
-
-    function toggleScrollTop() {
-        if (scrollTop) {
-            window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-        }
-    }
-
-    if (scrollTop) {
-        scrollTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        window.addEventListener('load', toggleScrollTop);
-        document.addEventListener('scroll', toggleScrollTop);
-    }
-
-    const $root = $(document.documentElement);
-
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-        $root.attr('data-theme', saved);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        $root.attr('data-theme', 'dark');
-    }
-
-    $('#switchTheme').on('click', function (e) {
+    // Scroll-to-top
+    const scrollTop = $('.scroll-top');
+    const toggleScrollTop = () => scrollTop?.classList.toggle('active', window.scrollY > 100);
+    scrollTop?.addEventListener('click', e => {
         e.preventDefault();
-        const current = $root.attr('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        $root.attr('data-theme', next);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('load', toggleScrollTop);
+    document.addEventListener('scroll', toggleScrollTop);
+
+    // Theme switcher
+    const root = document.documentElement;
+    root.setAttribute('data-theme',
+        localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    );
+    $('#switchTheme')?.addEventListener('click', e => {
+        e.preventDefault();
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
     });
 
-    function aosInit() {
-        AOS.init({
-            duration: 600,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
+    // AOS
+    window.addEventListener('load', () => {
+        AOS.init({ duration: 600, easing: 'ease-in-out', once: true, mirror: false });
+    });
+
+    // Swiper
+    window.addEventListener('load', () => {
+        $$('.init-swiper').forEach(swiperEl => {
+            const config = JSON.parse(swiperEl.querySelector('.swiper-config').textContent.trim());
+            delete config.autoHeight;
+            new Swiper(swiperEl, config);
         });
-    }
-    window.addEventListener('load', aosInit);
+    });
 
-    function initSwiper() {
-        document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
-            let config = JSON.parse(
-                swiperElement.querySelector(".swiper-config").innerHTML.trim()
-            );
-
-            if (config.autoHeight) {
-                delete config.autoHeight;
-            }
-
-            let swiperInstance = new Swiper(swiperElement, config);
-
-        });
-    }
-
-    window.addEventListener("load", initSwiper);
 })();
